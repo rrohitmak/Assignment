@@ -7,8 +7,8 @@ load_dotenv()
 SERVER = os.getenv("SERVER")
 SERVER_USER_NAME = os.getenv("USER_NAME")
 SERVER_PASSWORD = os.getenv("PASSWORD")
-DATABASE_1 = "self_ship"
-DATABASE_2 = "client"
+DATABASE_1 = "client"
+DATABASE_2 = "database-2"
 conn_str_1 = (
     f"DRIVER={{ODBC Driver 18 for SQL Server}};"
     f"SERVER={SERVER};"

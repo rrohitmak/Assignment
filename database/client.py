@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from sqlalchemy import Integer, String, Date
+from sqlalchemy import Integer, String
 from sqlalchemy.orm import declarative_base
 from sqlalchemy.orm import mapped_column
 
