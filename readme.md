@@ -39,6 +39,24 @@ To start the FastAPI server:
 ```bash
 uvicorn main:app --reload
 
+import requests
+
+response = requests.post("http://127.0.0.1:8000/get-sum")
+print(response.json())
+
+Response:
+
+{
+  "batchid": "string",
+  "response": [
+    0
+  ],
+  "status": "string",
+  "started_at": "2024-06-11T12:15:01.100Z",
+  "completed_at": "2024-06-11T12:15:01.100Z"
+}
+
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
