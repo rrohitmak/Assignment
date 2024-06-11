@@ -1,6 +1,5 @@
 from typing import List
 import logging
-from concurrent.futures import ProcessPoolExecutor
 from datetime import datetime
 import asyncio
 import subprocess
@@ -38,8 +37,7 @@ async def generate_sum(request: BatchRequest):
         logger.debug(f"Received request with batchid: {
             request.batchid} and payload: {request.payload}")
         num_list = request.payload
-        with ProcessPoolExecutor() as executor:
-            sum_list = [sum(item) for item in num_list]
+        sum_list = [sum(item) for item in num_list]
         response = {"batchid": request.batchid, "response": sum_list,
                     "status": "complete", "started_at": start_time, "completed_at": datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
         logger.debug(f"Response prepared: {response}")
