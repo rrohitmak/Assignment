@@ -41,15 +41,16 @@ uvicorn main:app --reload
 
 import requests
 
-body
+### Body
 {
 "batchid": "id0101",
 "payload": [[5, 3], [4, 2]]
 }
+### API Request
 response = requests.post("http://127.0.0.1:8000/get-sum",headers = {},data=body)
 print(response.json())
 
-Response:
+### Response:
 
 {
   "batchid": "id0101",
