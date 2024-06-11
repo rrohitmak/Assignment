@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from sqlalchemy import Integer, String, Date
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import declarative_base
 from sqlalchemy.orm import mapped_column
 
 Base = declarative_base()
