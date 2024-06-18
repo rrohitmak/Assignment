@@ -2,7 +2,7 @@ import logging
 import asyncio
 import subprocess
 from fastapi import FastAPI
-from routers import controller
+from controllers import controller
 
 app = FastAPI()
 app.include_router(controller.router)
