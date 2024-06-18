@@ -1,7 +1,7 @@
 import logging
 import asyncio
-import subprocess
 from fastapi import FastAPI, Request
+import uvicorn
 from controllers import controller
 
 app = FastAPI()
@@ -24,9 +24,6 @@ async def app_running():
     print("App Running")
 
 
-async def main():
-    command = "uvicorn main:app --host 0.0.0.0 --port 8000"
-    subprocess.run(command, shell=True)
-
 if __name__ == "__main__":
-    asyncio.run(main())
+    uvicorn.run(app, host="0.0.0.0", port=8000,
+                log_config="log.ini", reload=True)

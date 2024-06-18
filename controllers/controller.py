@@ -4,8 +4,8 @@ from datetime import datetime
 from fastapi import APIRouter, status
 from fastapi.responses import JSONResponse
 from fastapi.exceptions import HTTPException
-from pydantic import BaseModel
-from models.model import SumModel
+from models.model import BatchRequest, BatchResponse
+from utils.utils import SumModel
 
 router = APIRouter()
 
@@ -13,21 +13,6 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 sum_model = SumModel()
-
-
-class BatchRequest(BaseModel):
-    """Batch Request"""
-    batchid: str
-    payload: List[List[int]]
-
-
-class BatchResponse(BaseModel):
-    """Batch Response"""
-    batchid: str
-    response: List[int]
-    status: str
-    started_at: datetime
-    completed_at: datetime
 
 
 @ router.post("/get-sum", response_model=BatchResponse)

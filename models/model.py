@@ -1,9 +1,18 @@
 from typing import List
+from datetime import datetime
+from pydantic import BaseModel
 
 
-class SumModel():
-    def sum_list(self, payload: List[List[int]]) -> List[int]:
-        """
-        Takes list of int list and return a list of sum of each sub list
-        """
-        return [sum(item) for item in payload]
+class BatchRequest(BaseModel):
+    """Batch Request"""
+    batchid: str
+    payload: List[List[int]]
+
+
+class BatchResponse(BaseModel):
+    """Batch Response"""
+    batchid: str
+    response: List[int]
+    status: str
+    started_at: datetime
+    completed_at: datetime
